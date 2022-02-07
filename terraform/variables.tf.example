@@ -1,0 +1,39 @@
+variable "tenancy_ocid" {
+    default = "ocid1.tenancy.oc1..aaaaaaaa.."
+}
+
+variable "user_ocid" {
+    default = "ocid1.user.oc1..aaaaaaaa.."
+}
+
+variable "fingerprint" {
+    default = ""
+}
+
+variable "private_key_path" {
+    default = "/home/user/.oci/oci_api_key.pem"
+}
+
+variable "ssh_public_key" {
+    default = "/home/user/.ssh/id_rsa.pub"
+}
+
+variable "compartment_ocid" {
+    default = "ocid1.tenancy.oc1..aaaaaaaa"
+}
+
+variable "availability_domain" {
+    default = "OaRL:EU-ZURICH-1-AD-1"
+}
+
+variable "region" {
+    default = "eu-zurich-1"
+}
+
+variable "cidr_vcn" {
+    default = "192.168.101.0/24"
+}
+
+variable "cidr_subnet" {
+    default = "192.168.101.0/25"
+}
