@@ -30,5 +30,5 @@
   - name: Docker config
     shell: |
         usermod -aG docker opc 
-        chmod 666 /var/run/docker.sock 
+        chmod 664 /var/run/docker.sock 
         systemctl restart docker
