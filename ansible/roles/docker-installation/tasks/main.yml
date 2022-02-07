@@ -12,17 +12,23 @@
       - docker-ce-cli
       - containerd.io
 
-  - name: Enable Docker metrics
-    command: echo '{"metrics-addr" : "0.0.0.0:9323", "experimental" : true}' > /etc/docker/daemon.json
-
   - name: Enable docker daemon
     systemd:
       name: docker
       state: started
       enabled: yes
 
-  - name: Docker user
-    command: usermod -aG docker opc
+  - name: Enable Docker metrics
+    copy:
+      src: docker/daemon.json
+      dest: "/etc/docker/daemon.json"
+      owner: root
+      group: root
+      mode: 0644
+    become: true
 
-  - name: Docker socks
-    command: chmod 644 /var/run/docker.sock
+  - name: Docker config
+    shell: |
+        usermod -aG docker opc 
+        chmod 666 /var/run/docker.sock 
+        systemctl restart docker
