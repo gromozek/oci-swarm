@@ -1,0 +1,6 @@
+---
+  - name: Updating
+    yum: >
+      name='*'
+      state=latest
+      exclude=kernel* 
